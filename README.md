@@ -1,4 +1,4 @@
-This repository holds character encoding converters to covert ASCII characters in legacy fonts into Unicode Coptic characters
+This repository holds character encoding converters to covert ASCII characters in legacy fonts into Unicode Coptic characters and a processing perl script to convert a diplomatic, Coptic text transcription into SGML.
 ________________________________________
 Simple Perl Converter:
 recode_coptic.pl Version 0.9.1
@@ -15,8 +15,6 @@ About CopticVDWtoUTFConverter
 
 The contents of the CopticVDWtoUTFConverter zip file will convert a file keyed in the ASCII Coptic font created by Dirk Van Damme and Gregor Wurst into Unicode UTF-8 encoding for Coptic (and for use with such fonts as Antinoou).
 
-* * * * * * * 
-
 Licensing
 
 This software was created in 2012-13 by Eric E. Johnson in consultation with Stephen Emmel for the Coptic SCRIPtorIuM project directed by Caroline T. Schroeder and Amir Zeldes.  
@@ -28,8 +26,6 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. 
 
 See the GNU General Public License at <http://www.gnu.org/licenses/>.
-
-* * * * * * * 
 
 How To Use
 
@@ -44,7 +40,10 @@ Open the Terminal or command line interface, change to the the directory contain
 To run the converter from the command line:
 
 > python converter.py name_of_input_odf_file.odt name_of_output_markdown_file.md
+________________________________________
+SGML processor process_dipl.pl
+version 1.0.0
+converts SCRIPTORIUM transcription format to CWB/TreeTagger SGML
 
-... where you substitute the path to the appropriate input file for "name_of_input_odf_file.odt", and make up whatever you want for name_of_output_markdown_file.md (in "markdown" format). Note that the program does no checks for the existence of the target file so if you don't want to replace the destination file, choose a new file name.
-
+Copyright 2013-15 Amir Zeldes. The perl program is free software. You may copy or redistribute the script under the same terms as Perl itself.
 
