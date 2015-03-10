@@ -43,7 +43,9 @@ To run the converter from the command line:
 
 ________________________________________
 SGML processor process_dipl.pl
+
 version 1.0.0
+
 converts SCRIPTORIUM transcription format to CWB/TreeTagger SGML
 
 Copyright 2013-15 Amir Zeldes. The perl program is free software. You may copy or redistribute the script under the same terms as Perl itself.
