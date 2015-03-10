@@ -40,6 +40,7 @@ Open the Terminal or command line interface, change to the the directory contain
 To run the converter from the command line:
 
 > python converter.py name_of_input_odf_file.odt name_of_output_markdown_file.md
+
 ________________________________________
 SGML processor process_dipl.pl
 version 1.0.0
