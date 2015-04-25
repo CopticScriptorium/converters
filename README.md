@@ -1,15 +1,18 @@
 This repository holds character encoding converters to covert ASCII characters in legacy fonts into Unicode Coptic characters and a processing perl script to convert a diplomatic, Coptic text transcription into SGML.
 ________________________________________
 Simple Perl Converter:
-recode_coptic.pl Version 0.9.1
+recode_coptic.pl Version 1.1.0
 
 This assumes a UTF-8 file in one word per line format and automatically converts Coptic encodings
 
 Usage:
 recode_coptic.pl file
+Read a file in Coptic font encoding and output standard Unicode as UTF-8
+  recode_coptic.pl in_Coptic.txt > out_utf8.txt
 See help (-h) for options
 
-Copyright 2013-14 Amir Zeldes, Caroline T. Schroeder. The perl program is free software. You may copy or redistribute the script under the same terms as Perl itself.
+
+Copyright 2013-15 Amir Zeldes, Caroline T. Schroeder. The perl program is free software. You may copy or redistribute the script under the same terms as Perl itself.
 _________________________________________
 About CopticVDWtoUTFConverter
 
