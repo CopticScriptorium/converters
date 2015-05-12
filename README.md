@@ -6,12 +6,18 @@ recode_coptic.pl Version 1.1.0
 This assumes a UTF-8 file in one word per line format and automatically converts Coptic encodings
 
 Usage:
-recode_coptic.pl file
+
+    recode_coptic.pl file
+
 Read a file in Coptic font encoding and output standard Unicode as UTF-8
-  recode_coptic.pl in_Coptic.txt > out_utf8.txt
+
+    recode_coptic.pl in_Coptic.txt > out_utf8.txt
+
 See help (-h) for options
+
 Specify the input format (-f): Default is Coptic font, other options are "CopticLS", "CMCL", "avva_shenouda", "low" (converts all upper case utf8 Coptic to all lower case).  E.g., to convert a text in the CopticLS font:
-  recode_coptic.pl -f CopticLS in_Coptic.txt > out_utf8.txt
+
+    recode_coptic.pl -f CopticLS in_Coptic.txt > out_utf8.txt
 
 Copyright 2013-15 Amir Zeldes, Caroline T. Schroeder. The perl program is free software. You may copy or redistribute the script under the same terms as Perl itself.
 _________________________________________
