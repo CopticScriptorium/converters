@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# recode_coptic.pl Version 1.0.0
+# recode_coptic.pl Version 1.1.0
 
 # this assumes a UTF-8 file in one word per line format and 
 # automatically converts Coptic encodings
