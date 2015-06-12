@@ -1,5 +1,6 @@
 # coding: utf-8
 # Created by So Miyagawa, 2015
+# v 1.0
 print "What is the name of the file you want to copticize?"
 x=gets.chomp
 y=File.read("#{x}")
