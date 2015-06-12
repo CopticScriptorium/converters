@@ -60,3 +60,12 @@ converts SCRIPTORIUM transcription format to CWB/TreeTagger SGML
 
 Copyright 2013-15 Amir Zeldes. The perl program is free software. You may copy or redistribute the script under the same terms as Perl itself.
 
+________________________________________
+copticizer.rb
+
+version 1.0.0
+
+converts ASCII characterset for the texts on the St Shenouda Society CD to the Coptic Unicode characterset
+
+Contributed by So Miyagawa, 12 June 2015
+
