@@ -13,7 +13,7 @@ Examples:
 
   recode_coptic.pl shenoute.txt > shenoute_utf8.txt
 
-This is made by So Miyagawa, based on recode_coptic.pl
+So Miyagawa changed recode_coptic.pl for the NagHammadi font
 
 Information of recode_coptic.pl:
 	Copyright 2013-2015, Amir Zeldes, Caroline T. Schroeder 
