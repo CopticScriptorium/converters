@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# recode_coptic.pl Version 1.1.0
+# recode_coptic.pl Version 1.2.0
 
 # this assumes a UTF-8 file in one word per line format and 
 # automatically converts Coptic encodings
@@ -11,7 +11,7 @@
 use Getopt::Std;
 use utf8;
 binmode(STDOUT, ":utf8");
-binmode STDIN;
+binmode(STDIN);
 
 my $usage;
 {
@@ -27,7 +27,7 @@ Usage:  recode_coptic.pl [options] <FILE>
 Options and argument:
 
 -h              print this message and quit
--f <format>     Specify the input format. Default is Coptic font, other options are "CopticLS", "CMCL", "avva_shenouda", "low" (converts all upper case utf8 Coptic to all lower case)
+-f <format>     Specify the input format. Default is Coptic font, other options are "CopticLS", "CMCL", "NagHamadi", "avva_shenouda", "low" (converts all upper case utf8 Coptic to all lower case)
 
 <FILE>    A text file with Coptic text in a supported encoding
 
@@ -40,7 +40,7 @@ Read a file in CMCL encoding and output standard Unicode as UTF-8:
   recode_coptic.pl -f CMCL in_Coptic.txt > out_utf8.txt
 
   
-Copyright 2013-2015, Amir Zeldes, Caroline T. Schroeder
+Copyright 2013-2015, Amir Zeldes, Caroline T. Schroeder and So Miyagawa
 
 This program is free software. You may copy or redistribute it under
 the same terms as Perl itself.
@@ -64,6 +64,8 @@ elsif($format eq "CopticLS")
 	{$format="CopticLS"}
 elsif($format eq "CMCL") 
 	{$format="CMCL";}
+elsif($format eq "NagHamadi") 
+	{$format="NagHamadi";}
 elsif($format eq "low") 
 	{$format="low";}
 elsif($format eq "avva_shenouda") 
@@ -148,6 +150,7 @@ while (<FILE>) {
 	elsif ($format eq "CopticLS")
 	#need to add c±s
 	{
+
 	$line =~ s/a/ⲁ/g;
 	$line =~ s/b/ⲃ/g;
 	$line =~ s/c/ⲭ/g;
@@ -187,8 +190,10 @@ while (<FILE>) {
 	$line =~ s/Z/ⲹ/g;
 
 	#diacritics and strokes
-	$line =~ s/(.)±(.)=±(.)/$1︤$2︦$3︥/g;
-	$line =~ s/(.)±(.)/$1︤$2︥/g; #place binding supralinear strokes after each character
+	$line =~ s/±(.)=±(.)/︤$1︦$2︥/g;
+	$line =~ s/±(.)/︤$1︥/g; #place binding supralinear strokes after each character
+	$line =~ s/±/︤/g; 
+	$line =~ s/†/<gap reason="illegible">…̣<\/gap>/g;	#gap symbol in Brakke transcriptions
 	$line =~ s/=/̄/g; #equals sign after letter is a supralinear stroke
 	$line =~ s/O/᷍/g;
 	$line =~ s/P/̂/g;
@@ -210,12 +215,12 @@ while (<FILE>) {
 	$line =~ s/Y/Y/g; #couldn't find keyboard character
 	
 	#punctuation
-	$line =~ s/>/·/g;
+	$line =~ s/\}/·/g;
 	$line =~ s/B/⟦/g;
 	$line =~ s/ı/⟧/g;
 	$line =~ s/:/:/g;
 	$line =~ s/…/;/g;
-	$line =~ s/</⳿/g;
+	$line =~ s/\{/⳿/g;
 	
 
 	
@@ -253,6 +258,66 @@ while (<FILE>) {
 	$line =~ s/T/ⲯ/g;
 	$line =~ s/x/ⲝ/g;
 	
+	}
+	elsif ($format eq "NagHamadi")
+	{
+$line =~ s/A/︦/g;
+	$line =~ s/B/ⲛ̇/g;
+	$line =~ s/C/ϧ/g;
+	$line =~ s/D/ⲫ/g;
+	$line =~ s/E/⟧/g;
+	$line =~ s/F/ⲫ/g;
+	$line =~ s/G/G/g;
+	$line =~ s/H/H/g;
+	$line =~ s/I/ⲓ̈/g;
+	$line =~ s/J/`/g;
+	$line =~ s/K/ⲝ/g;
+	$line =~ s/L/ⲗ,/g;
+	$line =~ s/M/⸌ⲛ/g;
+	$line =~ s/N/ⲛ̄/g;
+	$line =~ s/O/̣/g;
+	$line =~ s/P/ⲯ/g;
+	$line =~ s/Q/q/g;
+	$line =~ s/R/ⳁ/g;
+	$line =~ s/S/ⲋ/g;
+	$line =~ s/T/ϯ/g;
+	$line =~ s/U/ⲩ/g;
+	$line =~ s/Ú/̈/g;
+	$line =~ s/V/V/g;
+	$line =~ s/W/⟦/g;
+	$line =~ s/X/·/g;
+	$line =~ s/Y/./g;
+	$line =~ s/Z/·/g;
+	$line =~ s/a/ⲁ/g;
+	$line =~ s/b/ⲃ/g;
+	$line =~ s/c/ϭ/g;
+	$line =~ s/d/ⲇ/g;
+	$line =~ s/e/ⲉ/g;
+	$line =~ s/f/ϥ/g;
+	$line =~ s/g/ⲅ/g;
+	$line =~ s/h/ϩ/g;
+	$line =~ s/i/ⲓ/g;
+	$line =~ s/j/ϫ/g;
+	$line =~ s/k/ⲕ/g;
+	$line =~ s/l/ⲗ/g;
+	$line =~ s/m/ⲙ/g;
+	$line =~ s/n/ⲛ/g;
+	$line =~ s/o/ⲟ/g;
+	$line =~ s/p/ⲡ/g;
+	$line =~ s/q/ϣ/g;
+	$line =~ s/r/ⲣ/g;
+	$line =~ s/s/ⲥ/g;
+	$line =~ s/t/ⲧ/g;
+	$line =~ s/u/ⲩ/g;
+	$line =~ s/v/ⲑ/g;
+	$line =~ s/w/ⲱ/g;
+	$line =~ s/x/ⲭ/g;
+	$line =~ s/y/ⲏ/g;
+	$line =~ s/z/ⲍ/g;
+	$line =~ s/=/̄/g;
+	$line =~ s/≥/·/g;
+	$line =~ s/ﬂ/ϥⲗ/g;
+	$line =~ s/\+/︦/g;
 	}
 	elsif ($format eq "low")
 	{
