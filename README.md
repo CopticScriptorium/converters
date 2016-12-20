@@ -69,3 +69,9 @@ converts ASCII characterset for the texts on the St Shenouda Society CD to the C
 
 Contributed by So Miyagawa, 12 June 2015
 
+_________________________________________
+SGML Excel Add-in for Mac (sgml_io_Mac_0.9.3.xla)
+
+An add-in for Microsoft Excel that converts SGML annotated text into multiple columns of data (SGML tag names = column names).  For use with the NLP pipeline output.  (See https://corpling.uis.georgetown.edu/coptic-nlp/ and code at https://github.com/CopticScriptorium/coptic-nlp)  Install add-inn.  Copy SGML-encoded text, paste into cell A1 of an Excel spreadsheet, then run the add-in.
+
+
