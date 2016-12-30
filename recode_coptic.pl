@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# recode_coptic.pl Version 1.2.0
+# recode_coptic.pl Version 1.2.1
 
 # this assumes a UTF-8 file in one word per line format and 
 # automatically converts Coptic encodings
@@ -40,7 +40,7 @@ Read a file in CMCL encoding and output standard Unicode as UTF-8:
   recode_coptic.pl -f CMCL in_Coptic.txt > out_utf8.txt
 
   
-Copyright 2013-2015, Amir Zeldes, Caroline T. Schroeder and So Miyagawa
+Copyright 2013-2016, Amir Zeldes, Caroline T. Schroeder and So Miyagawa
 
 This program is free software. You may copy or redistribute it under
 the same terms as Perl itself.
@@ -262,10 +262,12 @@ while (<FILE>) {
 	elsif ($format eq "NagHamadi")
 	{
 $line =~ s/A/︦/g;
-	$line =~ s/B/ⲛ̇/g;
+    $line =~ s/B/ⲛ̇/g;
+	$line =~ s/./̣/g;
 	$line =~ s/C/ϧ/g;
 	$line =~ s/D/ⲫ/g;
 	$line =~ s/E/⟧/g;
+    $line =~ s/’/⳿/g;
 	$line =~ s/F/ⲫ/g;
 	$line =~ s/G/G/g;
 	$line =~ s/H/H/g;
