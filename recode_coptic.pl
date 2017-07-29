@@ -257,7 +257,12 @@ while (<FILE>) {
 	$line =~ s/Y/ϯ/g;
 	$line =~ s/T/ⲯ/g;
 	$line =~ s/x/ⲝ/g;
-	
+	$line =~ s/\+_(.)\+/︤$1︥/g;
+	$line =~ s/\+/̄/g;
+	$line =~ s/R/ⳁ/g;
+	$line =~ s/:/̈/g;
+	$line =~ s/_(.)/︤$1︥/g;
+
 	}
 	elsif ($format eq "NagHamadi")
 	{
