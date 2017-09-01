@@ -257,6 +257,8 @@ while (<FILE>) {
 	$line =~ s/Y/ϯ/g;
 	$line =~ s/T/ⲯ/g;
 	$line =~ s/x/ⲝ/g;
+	$line =~ s/F/ⲭ︦ⲥ︦/g;
+	$line =~ s/E/ⲓ︦ⲥ︦/g;
 	$line =~ s/\+_(.)\+/︤$1︥/g;
 	$line =~ s/\+/̄/g;
 	$line =~ s/R/ⳁ/g;
